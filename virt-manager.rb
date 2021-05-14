@@ -3,9 +3,8 @@ class VirtManager < Formula
 
   desc "App for managing virtual machines"
   homepage "https://virt-manager.org/"
-  url "https://virt-manager.org/download/sources/virt-manager/virt-manager-2.2.1.tar.gz"
-  sha256 "cfd88d66e834513e067b4d3501217e21352fadb673103bacb9e646da9f029a1b"
-  revision 3
+  url "https://virt-manager.org/download/sources/virt-manager/virt-manager-3.1.0.tar.gz"
+  sha256 "77ebc3bd900e41b72d40d1061f39191a5a2b99c1171a2fb944d7144aed06f40b"
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
@@ -25,9 +24,10 @@ class VirtManager < Formula
   depends_on "python"
   depends_on "spice-gtk"
   depends_on "vte3"
+  depends_on "docutils"
 
   resource "libvirt-python" do
-    url "https://libvirt.org/sources/python/libvirt-python-6.10.0.tar.gz"
+    url "https://libvirt.org/sources/python/libvirt-python-7.30.0.tar.gz"
     sha256 "47a8e90d9f49bc0296d2817f6009e18dbb69844ce10b81c2a2672bccd6f49fd5"
   end
 
@@ -57,7 +57,7 @@ class VirtManager < Formula
   end
 
   # virt-manager doesn't prompt for password on macOS unless --no-fork flag is provided
-  patch :DATA
+  # patch :DATA
 
   def install
     venv = virtualenv_create(libexec, "python3")

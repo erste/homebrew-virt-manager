@@ -1,10 +1,10 @@
 class OsinfoDbTools < Formula
   desc "Tools for managing the libosinfo database files"
   homepage "https://libosinfo.org"
-  url "https://releases.pagure.org/libosinfo/osinfo-db-tools-1.6.0.tar.gz"
-  sha256 "d0d5b1196d73a7abed051be48d0e5b4aa196aac4cdbf8ddf52f57c0c492b2574"
+  url "https://releases.pagure.org/libosinfo/osinfo-db-tools-1.9.0.tar.gz"
+  sha256 "80c3fe2ae1062abf56456f52518bd670f9ec3917b7f85e152b347ac6b6faf880"
 
-  depends_on "pkg-config" => :build
+  depends_on "meson" => :build
 
   depends_on "gettext"
   depends_on "glib"
@@ -14,14 +14,11 @@ class OsinfoDbTools < Formula
 
   def install
     args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
       --prefix=#{prefix}
-      --localstatedir=#{var}
-      --sysconfdir=#{etc}
+      --werror
     ]
-    system "./configure", *args
-    system "make", "install"
+    system "meson build", *args
+    system "ninja", "install"
   end
 
   test do
