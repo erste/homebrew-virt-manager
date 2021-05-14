@@ -1,7 +1,7 @@
 class OsinfoDbTools < Formula
   desc "Tools for managing the libosinfo database files"
   homepage "https://libosinfo.org"
-  url "https://releases.pagure.org/libosinfo/osinfo-db-tools-1.9.0.tar.gz"
+  url "https://releases.pagure.org/libosinfo/osinfo-db-tools-1.9.0.tar.xz"
   sha256 "80c3fe2ae1062abf56456f52518bd670f9ec3917b7f85e152b347ac6b6faf880"
 
   depends_on "meson" => :build
