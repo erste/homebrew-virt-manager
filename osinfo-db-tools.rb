@@ -17,6 +17,8 @@ class OsinfoDbTools < Formula
   def install
     args = %W[
       --prefix=#{prefix}
+      --localstatedir=#{var}
+      --sysconfdir=#{etc}
       --werror
     ]
     system "meson", "build", *args
